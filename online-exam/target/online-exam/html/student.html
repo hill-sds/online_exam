@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生界面</title>
+    <link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+    <script type="text/javascript" src="../easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../js/student.js"></script>
+</head>
+    <body background="../img/bg2.jpg" style=" background-repeat:no-repeat;background-size:100% 100%;background-attachment: fixed;">
+        <div id="p" class="easyui-panel" style="background:transparent;width: 60px;border:transparent "
+                   data-options="style:{position:'absolute',left:300,top:0}">
+            <p>
+            <div style="width:50px; height:50px; border-radius:100%; overflow:hidden;">
+                <img src="../img/logo.jpg" style="max-width: 50px;max-height: 50px;vertical-align:middle"/>
+            </div>
+            </p>
+        </div>
+
+        <div id="p" class="easyui-panel" style="background:transparent;width: 400px;border:transparent "
+             data-options="style:{position:'absolute',left:360,top:4}">
+            <p>
+            <font size="6" style="color: #0052A3">在线考试系统</font>
+            </p>
+        </div>
+
+        <div id="p1" class="easyui-panel" style="background:transparent;width: 350px;border:transparent "
+             data-options="style:{position:'absolute',left:1300,top:0}">
+            <p>
+                <a class="easyui-linkbutton"  data-options="plain:true" >
+                    <font size="2" color="#6495ed">管理端</font>
+                </a>
+                <a class="easyui-linkbutton" data-options="plain:true" >
+                    <font size="2" color="#6495ed">退出</font>
+                </a>
+            </p>
+        </div>
+
+        <div id="p2" class="easyui-panel" style="background:transparent;width: 700px;height: 400px;border:transparent "
+             data-options="style:{position:'absolute',left:700,top:200}">
+            <input class="easyui-textbox" id="password" prompt="输入考试码参加考试"
+                   style="width:400px;height: 50px;" data-options="">
+        </div>
+
+        <div id="p3" class="easyui-panel" style="background:transparent;width: 700px;height: 400px;border:transparent "
+             data-options="style:{position:'absolute',left:1100,top:200}">
+            <a href="#" class="easyui-linkbutton"  style="width: 150px;height: 50px;text-align: center;background: #222222;border: transparent" onclick="login()">
+                <font color= #f2f2f2>参加考试</font>
+            </a>
+        </div>
+    </body>
+</html>

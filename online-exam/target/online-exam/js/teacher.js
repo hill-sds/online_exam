@@ -1,0 +1,43 @@
+//教师界面
+
+//加载页面
+$(document).ready(function (){
+    GetTeacherName();
+});
+
+//检测是否登录
+function GetTeacherName() {
+    $.ajax({
+        url: "teacherName.action",
+        type: "post",
+        dataType: "json",
+        success: function (data) {
+            var json = eval(data);//json为接收的后台返回的数据；
+            if(json.name =="no") {
+                $.messager.alert('温馨提示','您还未登录!','info',function () {
+                    window.location.href="../html/teacherLogin.html";
+                });
+            } else {
+                $("#teacherName").text('欢迎您,' + json.name);
+            }
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+}
+
+//跳转试题界面
+function gotoTeacherQuestion() {
+    $('#zhuti').attr('src', '../html/teacherQuestion.html');
+}
+
+//跳转试卷界面
+function gotoTeacherExam() {
+    $('#zhuti').attr('src', '../html/teacherExam.html');
+}
+
+//
+function gotoTeacherExamInfor() {
+    $('#zhuti').attr('src', '../html/teacherExamInformation.html');
+}
