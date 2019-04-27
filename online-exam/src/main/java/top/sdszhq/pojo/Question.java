@@ -12,6 +12,8 @@ public class Question {
     private String subject;//所属科目
     private String person;//出题人
 
+
+
     public Question() {
     }
 
