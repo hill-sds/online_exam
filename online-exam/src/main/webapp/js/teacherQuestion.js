@@ -2,6 +2,7 @@
 
 //加载页面
 $(document).ready(function (){
+    /*$("#p9").css('display','none');//隐藏*/
 });
 
 //查询所有试题
@@ -38,6 +39,6 @@ function seekAll() {
 
 //添加试题
 function addQuestion() {
-    alert("666");
-    $('#win').window('open');
+    $("#p9").css('display','block');//显示
+
 }
