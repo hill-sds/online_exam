@@ -54,23 +54,98 @@
             <div class="layui-form">
                 <table class="layui-table" id="datas">
                     <tr id="template">
-                        <td id="id">试题编号</td>
-                        <td id="question">题目</td>
-                        <td id="answer">答案</td>
-                        <td id="optionA">选项A</td>
-                        <td id="optionB">选项B</td>
-                        <td id="optionC">选项C</td>
-                        <td id="optionD">选项D</td>
-                        <td id="subject">所属科目</td>
-                        <td id="score">分数</td>
-                        <td id="person">操作</td>
+                        <td >试题编号</td>
+                        <td >题目</td>
+                        <td >答案</td>
+                        <td >选项A</td>
+                        <td >选项B</td>
+                        <td >选项C</td>
+                        <td >选项D</td>
+                        <td >所属科目</td>
+                        <td >分数</td>
+                        <td >操作</td>
                     </tr>
                 </table>
             </div>
         </div>
-        <!--<div id="win" class="easyui-window" title="My Window"  style="display: none;width:600px;height:400px;"
-             data-options="iconCls:'icon-save',modal:true">
-            Window Content
-        </div>-->
+        <div id="p9" class="easyui-panel" style="background-color: #FFFFFF;width: 560px;height: 500px;border:transparent"
+             data-options="style:{position:'absolute',left:520,top:115}">
+            <table width="550px">
+                <tr>
+                    <td align="center">
+                        <font size="5">添加试题</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="60px">
+                        <font size="3">题目:</font>
+                        <input class="easyui-textbox" id="question" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="30px">
+                        <font size="3">答案:</font>
+                        <input name="answer" type="radio" value="A" /><font size="4">A</font>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="answer" type="radio" value="B" /><font size="4">B</font>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="answer" type="radio" value="C" /><font size="4">C</font>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="answer" type="radio" value="D" /><font size="4">D</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">A项:</font>
+                        <input class="easyui-textbox" id="optionA" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">B项:</font>
+                        <input class="easyui-textbox" id="optionB" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">C项:</font>
+                        <input class="easyui-textbox" id="optionC" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">D项:</font>
+                        <input class="easyui-textbox" id="optionD" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">科目:</font>
+                        <input class="easyui-textbox" id="subject" style="width:100px">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <font size="3">难度:</font>
+                        <input class="easyui-textbox" id="difficulty" style="width:100px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">书籍:</font>
+                        <input class="easyui-textbox" id="book" style="width:100px">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <font size="3">章节:</font>
+                        <input class="easyui-textbox" id="chapter" style="width:100px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="110px">
+                        <button class="layui-btn" onclick="addQuestionTitle()">添加试题</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="layui-btn" onclick="closeQuestion()">关闭</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>

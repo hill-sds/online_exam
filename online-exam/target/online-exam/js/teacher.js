@@ -2,7 +2,7 @@
 
 //加载页面
 $(document).ready(function (){
-    GetTeacherName();
+    GetTeacherName();//拦截教师未登录*/
 });
 
 //检测是否登录

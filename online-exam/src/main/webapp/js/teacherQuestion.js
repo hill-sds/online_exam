@@ -2,7 +2,7 @@
 
 //加载页面
 $(document).ready(function (){
-    /*$("#p9").css('display','none');//隐藏*/
+    $("#p9").css('display','none');//隐藏
 });
 
 //查询所有试题
@@ -37,8 +37,60 @@ function seekAll() {
     });
 }
 
-//添加试题
+//添加试题界面显示
 function addQuestion() {
     $("#p9").css('display','block');//显示
+}
 
+//关闭试题界面显示
+function closeQuestion() {
+    $("#p9").css('display','none');//显示
+}
+
+//添加具体的试题
+function addQuestionTitle() {
+    var question = $("#question").val();
+    var answer = $("input[name='answer']:checked").val();
+    var optionA = $("#optionA").val();
+    var optionB = $("#optionB").val();
+    var optionC = $("#optionC").val();
+    var optionD = $("#optionD").val();
+    var subject = $("#subject").val();
+    var difficulty = $("#difficulty").val();
+    var book = $("#book").val();
+    var chapter = $("#chapter").val();
+
+    var data = {    "question":question,
+                    "answer":answer,
+                    "optionA":optionA,
+                    "optionB":optionB,
+                    "optionC":optionC,
+                    "optionD":optionD,
+                    "subject":subject,
+                    "difficulty":difficulty,
+                    "book":book,
+                    "chapter":chapter
+                 };
+
+    $.ajax({
+        url: "addQuestion.action",
+        type: "post",
+        data: JSON.stringify(data),
+        contentType:"application/json",
+        dataType: "json",
+        success: function (data) {
+            $("#p9").css('display','none');//显示
+            $.messager.alert('温馨提示','添加成功');
+            // var json = eval(data);//json为接收的后台返回的数据；
+            // if(json.msg=="no") {
+            //     $.messager.alert('温馨提示','该账号已被注册，请换一个账号');
+            //     $("#account").textbox('setValue');
+            // } else if (json.msg=="yes") {
+            //     $.messager.alert('温馨提示','注册成功');
+            // }
+        },
+        error: function () {
+            alert("error");
+        }
+    });
 }
