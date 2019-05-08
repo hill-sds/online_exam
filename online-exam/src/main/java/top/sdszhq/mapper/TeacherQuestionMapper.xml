@@ -4,7 +4,28 @@
 <mapper namespace="top.sdszhq.mapper.TeacherQuestionMapper">
 
     <select id="findQuestionAll"  resultType="top.sdszhq.pojo.Question" >
-        SELECT * FROM question;
+        SELECT t.`id`,t.`question`,t.`answer`,t.`optionA`,t.`optionB`,t.`optionC`,t.`optionD`,t.`subject`,t.`book`,t.`chapter`,t.`difficulty` FROM question t WHERE t.`person` = #{0};
     </select>
 
+    <select id="findQuestion" parameterType="hashmap" resultType="top.sdszhq.pojo.Question" >
+        SELECT t.`id`,t.`question`,t.`answer`,t.`optionA`,t.`optionB`,t.`optionC`,t.`optionD`,t.`subject`,t.`book`,t.`chapter`,t.`difficulty` FROM question t
+        <where>
+            <if test="#{name} != null">
+                t.`person` =#{name}
+            </if>
+
+            <if test="#{selectQuestion} != null">
+                and t.`question` like '%${selectQuestion}%'
+            </if>
+
+            <if test="#{selectSubject} != null">
+                and t.`subject` like '%${selectSubject}%'
+            </if>
+        </where>
+    </select>
+
+
+    <select id="addQuedtion"  parameterType="top.sdszhq.pojo.Question">
+        INSERT INTO question VALUES(NULL,'${question}','${answer}','${optionA}','${optionB}','${optionC}','${optionD}','${subject}','${person}',NULL,NULL,'${book}','${chapter}','${difficulty}');
+    </select>
 </mapper>
