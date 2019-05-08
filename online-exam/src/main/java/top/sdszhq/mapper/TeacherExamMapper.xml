@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.sdszhq.mapper.TeacherExamMapper">
+
+    <select id="addExam"  parameterType="top.sdszhq.pojo.Exam">
+        INSERT INTO exam VALUES(NULL,'${name}','${totalScore}','${createDate}','${person}','${subject}','${book}','${chapter}','${question}');
+    </select>
+
+    <select id="findExam" parameterType="hashmap" resultType="top.sdszhq.pojo.Exam" >
+        SELECT t.`id`,t.`name`,t.`createDate`,t.`totalScore`,t.`person`,t.`subject`,t.`book`,t.`chapter`,t.`book`,t.`question` FROM exam t
+        <where>
+            <if test="#{name} != null">
+                t.`person` =#{name}
+            </if>
+
+            <if test="#{selectExam} != null">
+                and t.`name` like '%${selectExam}%'
+            </if>
+        </where>
+    </select>
+
+</mapper>
