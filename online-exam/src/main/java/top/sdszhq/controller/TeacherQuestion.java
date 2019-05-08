@@ -12,6 +12,7 @@ import top.sdszhq.utils.CookieUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -48,6 +49,21 @@ public class TeacherQuestion {
         tqs.addQuestion(qt);
         System.out.println("666");
         List<Question> list = new ArrayList<>();
+        return new Gson().toJson(list);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/html/seekQuestion.action",produces = "application/json; charset=utf-8")
+    public String seekQuestion(@RequestBody Map<String,String> map,HttpServletRequest request) {
+        String selectQuestion = map.get("selectQuestion");
+        String selectSubject = map.get("selectSubject");
+        List<Question> list = new ArrayList<>();
+        String person = CookieUtil.getCookie(request,"name");
+        HashMap map1 = new HashMap();
+        map1.put("selectQuestion",selectQuestion);
+        map1.put("selectSubject",selectSubject);
+        map1.put("name",person);
+        list = tqs.findQuestion(map1);
         return new Gson().toJson(list);
     }
 }
