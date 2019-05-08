@@ -1,0 +1,57 @@
+package top.sdszhq.controller;
+
+import com.google.gson.Gson;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import top.sdszhq.pojo.Exam;
+import top.sdszhq.pojo.Question;
+import top.sdszhq.service.TeacherExamService;
+import top.sdszhq.service.TeacherQuestionService;
+import top.sdszhq.utils.CookieUtil;
+import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+@Controller
+public class TeacherExam {
+    @Autowired
+    public TeacherExamService tes;
+
+    @ResponseBody
+    @RequestMapping(value = "/html/addExam.action",produces = "application/json; charset=utf-8")
+    public String addQuestion(@RequestBody Map<String,String> map, HttpServletRequest request) {
+        String name = map.get("name");
+        String singleScore = map.get("singleScore");
+        String subject = map.get("subject");
+        String book = map.get("book");
+        String chapter = map.get("chapter");
+        String question = map.get("question");
+        String person = CookieUtil.getCookie(request,"name");
+        String [] result = question.split(",");
+        int account = result.length;
+        int single = Integer.parseInt(singleScore);
+        String totalScore = String.valueOf(account*single);
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+        String createDate = df.format(new Date());
+        Exam ea = new Exam(name,totalScore,createDate,person,subject,book,chapter,question);
+        tes.addExam(ea);
+        List<Question> list = new ArrayList<>();
+        return new Gson().toJson(list);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/html/selectExam.action",produces = "application/json; charset=utf-8")
+    public String seekQuestion(@RequestBody Map<String,String> map,HttpServletRequest request) {
+        String selectExam = map.get("selectExam");
+        List<Exam> list = new ArrayList<>();
+        String person = CookieUtil.getCookie(request,"name");
+        HashMap map1 = new HashMap();
+        map1.put("selectExam",selectExam);
+        map1.put("name",person);
+        list = tes.findExam(map1);
+        return new Gson().toJson(list);
+    }
+}
