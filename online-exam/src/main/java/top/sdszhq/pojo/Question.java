@@ -34,6 +34,9 @@ public class Question {
         this.difficulty = difficulty;
     }
 
+    public Question() {
+    }
+
     public Question(String question, String answer, String optionA, String optionB, String optionC, String optionD, String subject, String person, String book, String chapter, String difficulty) {
         this.question = question;
         this.answer = answer;
