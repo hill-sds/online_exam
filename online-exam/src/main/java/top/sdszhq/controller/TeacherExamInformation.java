@@ -29,12 +29,13 @@ public class TeacherExamInformation {
         String subject = map.get("subject");
         String score = map.get("score");
         String examId = map.get("examId");
-        String examCode = map.get("examCode");
+        String examCode = map.get("examCode");//examDate
+        String examDate = map.get("examDate");
         String person = CookieUtil.getCookie(request,"name");
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
         String createDate = df.format(new Date());
         String exam = examId.substring(0,1);
-        ExamInformation ei = new ExamInformation(name,createDate,exam,score,examCode,person,subject);
+        ExamInformation ei = new ExamInformation(name,createDate,exam,score,examCode,person,subject,examDate);
         tei.addExamInformation(ei);
         List<Question> list = new ArrayList<>();
         return new Gson().toJson(list);

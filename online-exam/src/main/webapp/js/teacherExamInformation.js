@@ -93,12 +93,14 @@ function sureExam() {
     var score = $("#score").val();
     var examId = $("#examId").val();
     var examCode = $("#examCode").val();
+    var examDate = $("#examDate").val();
 
     var data = {    "name":examName,
                     "score":score,
                     "subject":subject,
                     "examId":examId,
-                    "examCode":examCode
+                    "examCode":examCode,
+                    "examDate":examDate
                 };
 
     $.ajax({
@@ -139,10 +141,11 @@ function selectExamInformation() {
                     "<td>"+dataObj[i].subject+"</td>" +
                     "<td>"+dataObj[i].exam+"</td>" +
                     "<td>"+dataObj[i].totalScore+"</td>" +
+                    "<td>"+dataObj[i].examDate+"分钟"+"</td>" +
                     "<td>"+dataObj[i].examCode+"</td>" +
                     "<td>"+dataObj[i].person+"</td>" +
-                    "<td>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class=\"layui-btn\" onclick=\"addQuestion()\">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-                    "<button class=\"layui-btn layui-btn-warm\" onclick=\"addQuestion()\">删除</button>"+"</td></tr>");
+                    "<td>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class=\"layui-btn\" onclick=\"test()\">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                    "<button class=\"layui-btn layui-btn-warm\" onclick=\"test()\">删除</button>"+"</td></tr>");
             }
         },
         error: function () {

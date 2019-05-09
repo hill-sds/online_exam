@@ -8,12 +8,24 @@ public class ExamInformation {
     private String totalScore;//总分
     private String examCode;//考试码
     private String person;//创建人
-    private String subject;//所属科目
+    private String subject;//所属科目examDate
+    private String examDate;//考试时长
 
     public ExamInformation() {
     }
 
-    public ExamInformation(int id, String name, String createDate, String exam, String totalScore, String examCode, String person, String subject) {
+    public ExamInformation(String name, String createDate, String exam, String totalScore, String examCode, String person, String subject, String examDate) {
+        this.name = name;
+        this.createDate = createDate;
+        this.exam = exam;
+        this.totalScore = totalScore;
+        this.examCode = examCode;
+        this.person = person;
+        this.subject = subject;
+        this.examDate = examDate;
+    }
+
+    public ExamInformation(int id, String name, String createDate, String exam, String totalScore, String examCode, String person, String subject, String examDate) {
         this.id = id;
         this.name = name;
         this.createDate = createDate;
@@ -22,16 +34,7 @@ public class ExamInformation {
         this.examCode = examCode;
         this.person = person;
         this.subject = subject;
-    }
-
-    public ExamInformation(String name, String createDate, String exam, String totalScore, String examCode, String person, String subject) {
-        this.name = name;
-        this.createDate = createDate;
-        this.exam = exam;
-        this.totalScore = totalScore;
-        this.examCode = examCode;
-        this.person = person;
-        this.subject = subject;
+        this.examDate = examDate;
     }
 
     public int getId() {
@@ -98,6 +101,14 @@ public class ExamInformation {
         this.subject = subject;
     }
 
+    public String getExamDate() {
+        return examDate;
+    }
+
+    public void setExamDate(String examDate) {
+        this.examDate = examDate;
+    }
+
     @Override
     public String toString() {
         return "ExamInformation{" +
@@ -109,6 +120,7 @@ public class ExamInformation {
                 ", examCode='" + examCode + '\'' +
                 ", person='" + person + '\'' +
                 ", subject='" + subject + '\'' +
+                ", examDate='" + examDate + '\'' +
                 '}';
     }
 }
