@@ -30,17 +30,17 @@
             <p>
                 <font size="4" style="color: #6a6a6a">&nbsp;&nbsp;&nbsp;试题查询</font>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <font size="2" style="color: #6a6a6a">&nbsp;&nbsp;&nbsp;试题科目</font>
-                <input class="easyui-textbox" style="width:300px;height: 30px">
+                <font size="2" style="color: #6a6a6a">&nbsp;&nbsp;&nbsp;试题题目</font>
+                <input class="easyui-textbox" id="selectQuestion" style="width:300px;height: 30px">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <font size="2" style="color: #6a6a6a">&nbsp;&nbsp;&nbsp;所属科目</font>
-                <input class="easyui-textbox" style="width:300px;height: 30px">
+                <input class="easyui-textbox" id="selectSubject" style="width:300px;height: 30px">
             </p>
         </div>
         <div id="p4" class="easyui-panel" style="background:transparent;width: 120px;height: 40px; border:transparent"
              data-options="style:{position:'absolute',left:1520,top:60}">
             <p>
-                <button class="layui-btn layui-btn-normal" onclick="seekAll()">查询试题</button>
+                <button class="layui-btn layui-btn-normal" onclick="seekQuestion()">查询试题</button>
             </p>
         </div>
         <div id="p6" class="easyui-panel" style="background:transparent;width: 1620px;height: 40px;border:transparent "
@@ -49,26 +49,33 @@
                 <font size="4" style="color: #6a6a6a">&nbsp;&nbsp;&nbsp;查询结果</font>
             </p>
         </div>
-        <div id="p7" class="easyui-panel" style="background:transparent;width: 1620px;height: 540px;border:transparent "
+        <div id="p7" class="easyui-panel" style="background:transparent;width: 1620px;height: 670px;border:transparent "
              data-options="style:{position:'absolute',left:20,top:150}">
             <div class="layui-form">
-                <table class="layui-table" id="datas">
-                    <tr id="template">
-                        <td >试题编号</td>
-                        <td >题目</td>
-                        <td >答案</td>
-                        <td >选项A</td>
-                        <td >选项B</td>
-                        <td >选项C</td>
-                        <td >选项D</td>
-                        <td >所属科目</td>
-                        <td >分数</td>
-                        <td >操作</td>
-                    </tr>
+                <table class="layui-table">
+                    <thead>
+                        <tr>
+                            <td>试题编号</td>
+                            <td>题目</td>
+                            <td>答案</td>
+                            <td>选项A</td>
+                            <td>选项B</td>
+                            <td>选项C</td>
+                            <td>选项D</td>
+                            <td>所属科目</td>
+                            <td>所属书籍</td>
+                            <td>所属章节</td>
+                            <td>难度系数</td>
+                            <td align="center">操作</td>
+                        </tr>
+                    </thead>
+                    <tbody id="mytab">
+                    </tbody>
                 </table>
             </div>
+            <!--<div id="test1"></div>-->
         </div>
-        <div id="p9" class="easyui-panel" style="background-color: #FFFFFF;width: 560px;height: 500px;border:transparent"
+        <div id="p9" class="easyui-panel" style="background-color: #FFFFFF;width: 560px;height: 500px;"
              data-options="style:{position:'absolute',left:520,top:115}">
             <table width="550px">
                 <tr>
@@ -147,5 +154,16 @@
                 </tr>
             </table>
         </div>
+        <script>
+            layui.use('laypage', function(){
+                var laypage = layui.laypage;
+
+                //执行一个laypage实例
+                laypage.render({
+                    elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+                    ,count: 50 //数据总数，从服务端得到
+                });
+            });
+        </script>
     </body>
 </html>

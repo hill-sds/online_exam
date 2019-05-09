@@ -3,33 +3,77 @@
 //加载页面
 $(document).ready(function (){
     $("#p9").css('display','none');//隐藏
+    seekAll();
 });
+
+function seekQuestion() {
+    $("#mytab").text("");
+    var selectQuestion = $("#selectQuestion").val();
+    var selectSubject = $("#selectSubject").val();
+    var data = {    "selectQuestion":selectQuestion,
+                    "selectSubject":selectSubject,
+                };
+    if((selectQuestion == null||selectQuestion == "")&&(selectSubject == null||selectSubject == "")){
+        seekAll();
+    }else {
+        $.ajax({
+            url: "seekQuestion.action",
+            type: "post",
+            data: JSON.stringify(data),
+            contentType:"application/json",
+            dataType: "json",
+            success: function (data) {
+                var dataObj = eval(data);//json为接收的后台返回的数据；
+                var $tab1 = $("#mytab");
+                for (i = 0; i < dataObj.length; i++) {
+                    $("#mytab").append("<tr><td>"+dataObj[i].id+"</td>" +
+                        "<td>"+dataObj[i].question+"</td>" +
+                        "<td>"+dataObj[i].answer+"</td>" +
+                        "<td>"+dataObj[i].optionA+"</td>" +
+                        "<td>"+dataObj[i].optionB+"</td>" +
+                        "<td>"+dataObj[i].optionC+"</td>" +
+                        "<td>"+dataObj[i].optionD+"</td>" +
+                        "<td>"+dataObj[i].subject+"</td>" +
+                        "<td>"+dataObj[i].book+"</td>" +
+                        "<td>"+dataObj[i].chapter+"</td>" +
+                        "<td>"+dataObj[i].difficulty+"</td>" +
+                        "<td>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class=\"layui-btn\" onclick=\"addQuestion()\">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                        "<button class=\"layui-btn layui-btn-warm\" onclick=\"addQuestion()\">删除</button>"+"</td></tr>");
+                }
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+    }
+}
+
 
 //查询所有试题
 function seekAll() {
-    alert("开始查找")
-
+    $("#mytab").text("");
     $.ajax({
         url: "seekAll.action",
         type: "post",
         dataType: "json",
         success: function (data) {
-            alert("666");
-            var json = eval(data);//json为接收的后台返回的数据；
-            $.each(json, function (i, n) {
-                var row = $("#template").clone();
-                row.find("#id").text(n.id);
-                row.find("#question").text(n.question);
-                row.find("#answer").text(n.answer);
-                row.find("#optionA").text(n.optionA);
-                row.find("#optionB").text(n.optionB);
-                row.find("#optionC").text(n.optionC);
-                row.find("#optionD").text(n.optionD);
-                row.find("#subject").text(n.subject);
-                row.find("#score").text(n.score);
-                row.find("#person").text(n.person);
-                row.appendTo("#datas");//添加到模板的容器中
-            });
+            var dataObj = eval(data);//json为接收的后台返回的数据；
+            var $tab1 = $("#mytab");
+            for (i = 0; i < dataObj.length; i++) {
+                $("#mytab").append("<tr><td>"+dataObj[i].id+"</td>" +
+                                   "<td>"+dataObj[i].question+"</td>" +
+                                "<td>"+dataObj[i].answer+"</td>" +
+                                "<td>"+dataObj[i].optionA+"</td>" +
+                                "<td>"+dataObj[i].optionB+"</td>" +
+                                "<td>"+dataObj[i].optionC+"</td>" +
+                                "<td>"+dataObj[i].optionD+"</td>" +
+                                "<td>"+dataObj[i].subject+"</td>" +
+                                "<td>"+dataObj[i].book+"</td>" +
+                                "<td>"+dataObj[i].chapter+"</td>" +
+                                "<td>"+dataObj[i].difficulty+"</td>" +
+                                "<td>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class=\"layui-btn\" onclick=\"updateQuestion()\">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                                "<button class=\"layui-btn layui-btn-warm\" onclick=\"deleQuestion()\">删除</button>"+"</td></tr>");
+            }
         },
         error: function () {
             alert("error");
@@ -81,16 +125,14 @@ function addQuestionTitle() {
         success: function (data) {
             $("#p9").css('display','none');//显示
             $.messager.alert('温馨提示','添加成功');
-            // var json = eval(data);//json为接收的后台返回的数据；
-            // if(json.msg=="no") {
-            //     $.messager.alert('温馨提示','该账号已被注册，请换一个账号');
-            //     $("#account").textbox('setValue');
-            // } else if (json.msg=="yes") {
-            //     $.messager.alert('温馨提示','注册成功');
-            // }
         },
         error: function () {
             alert("error");
         }
     });
+}
+
+//修改题目
+function updateQuestion() {
+
 }

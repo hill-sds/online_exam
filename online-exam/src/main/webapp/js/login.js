@@ -17,6 +17,8 @@ function login() {
         $.messager.alert('温馨提示','请输入密码');
         return false;
     }
+
+
     $.ajax({
         url: "login.action",
         type: "post",
