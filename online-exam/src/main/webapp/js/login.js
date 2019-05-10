@@ -9,6 +9,7 @@ $(document).ready(function (){
 function login() {
     var account = $("#account").val();
     var password = $("#password").val();
+
     var status = $("input[name='remenber']:checked").val();//身份
     if(account=="") {
         $.messager.alert('温馨提示','请输入账号');

@@ -11,4 +11,12 @@
         INSERT INTO STUDENT VALUES(NULL,'${name}','${account}','${password}','${question}','${answer}');
     </select>
 
+    <select id="selectTeaAccount"  resultType="String">
+        SELECT t.`account` FROM TEACHER t WHERE t.`account` = #{0};
+    </select>
+
+    <select id="addTeaAccount"  parameterType="top.sdszhq.pojo.Teacher">
+        INSERT INTO TEACHER VALUES(NULL,'${name}','${account}','${password}','${question}','${answer}');
+    </select>
+
 </mapper>

@@ -15,7 +15,7 @@ function GetTeacherName() {
             var json = eval(data);//json为接收的后台返回的数据；
             if(json.name =="no") {
                 $.messager.alert('温馨提示','您还未登录!','info',function () {
-                    window.location.href="../html/teacherLogin.html";
+                    window.location.href="../html/login.html";
                 });
             } else {
                 $("#teacherName").text('欢迎您,' + json.name);

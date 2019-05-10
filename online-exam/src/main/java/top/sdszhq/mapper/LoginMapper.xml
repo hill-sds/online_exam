@@ -4,7 +4,7 @@
 <mapper namespace="top.sdszhq.mapper.LoginMapper">
 
     <select id="selectPassword"  resultType="java.util.HashMap" >
-        SELECT t.`password`  FROM STUDENT t WHERE t.`account`= #{0} ;
+        SELECT t.`password`,t.`name`  FROM STUDENT t WHERE t.`account`= #{0} ;
     </select>
 
     <select id="selectTeacherPassword"  resultType="java.util.HashMap" >
