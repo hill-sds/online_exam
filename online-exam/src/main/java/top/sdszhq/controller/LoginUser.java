@@ -40,6 +40,8 @@ public class LoginUser {
                 if(rtnMap.get("password").equals(password)) {
                     map.put("msg", "studentYes");
                     Cookie nameCookie = new Cookie("name", (String) rtnMap.get("name"));
+                    Cookie accountCookie = new Cookie("account", account);
+                    response.addCookie(accountCookie);
                     response.addCookie(nameCookie);
                 }else {
                     map.put("msg", "no");
@@ -93,6 +95,8 @@ public class LoginUser {
                 if(rtnMap.get("password").equals(password)) {
                     map.put("msg", "teacherYes");
                     Cookie nameCookie = new Cookie("name", (String) rtnMap.get("name"));
+                    Cookie accountCookie = new Cookie("account", account);
+                    response.addCookie(accountCookie);
                     response.addCookie(nameCookie);
                 }else {
                     map.put("msg", "no");
