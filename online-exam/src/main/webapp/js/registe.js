@@ -17,8 +17,8 @@ function registe() {
         $.messager.alert('温馨提示','请输入姓名');
         return false;
     }
-    if (account == "" || !(/\d{11}$/.test(account))) {
-        $.messager.alert('温馨提示','请输入11位数字账号');
+    if (account == "" || !(/\d{10}$/.test(account))) {
+        $.messager.alert('温馨提示','请输入10位数字账号');
         return false;
     }
     if(password == "" || repassword=="") {
