@@ -36,8 +36,7 @@ function seekQuestion() {
                         "<td>"+dataObj[i].subject+"</td>" +
                         "<td>"+dataObj[i].book+"</td>" +
                         "<td>"+dataObj[i].chapter+"</td>" +
-                        "<td>"+dataObj[i].difficulty+"</td>" +
-                        "<td>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class=\"layui-btn\" onclick=\"addQuestion()\">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                        "<td>"+"&nbsp;<button class=\"layui-btn\" onclick=\"addQuestion()\">修改</button>&nbsp;" +
                         "<button class=\"layui-btn layui-btn-warm\" onclick=\"addQuestion()\">删除</button>"+"</td></tr>");
                 }
             },
@@ -70,7 +69,6 @@ function seekAll() {
                                 "<td>"+dataObj[i].subject+"</td>" +
                                 "<td>"+dataObj[i].book+"</td>" +
                                 "<td>"+dataObj[i].chapter+"</td>" +
-                                "<td>"+dataObj[i].difficulty+"</td>" +
                                 "<td>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class=\"layui-btn\" onclick=\"updateQuestion()\">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
                                 "<button class=\"layui-btn layui-btn-warm\" onclick=\"deleQuestion()\">删除</button>"+"</td></tr>");
             }
