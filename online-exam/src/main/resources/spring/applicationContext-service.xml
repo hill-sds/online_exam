@@ -15,4 +15,5 @@
 	<bean id="TeacherExamInformationService" name="TeacherExamInformationService" class="top.sdszhq.serviceImpl.TeacherExamInformationServiceImp"></bean>
 
 	<bean id="StudentExamService" name="StudentExamService" class="top.sdszhq.serviceImpl.StudentExamServiceImp"></bean>
+	<bean id="StudentInformationService" name="StudentInformationService" class="top.sdszhq.serviceImpl.StudentInformationServiceImp"></bean>
 </beans>
