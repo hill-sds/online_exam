@@ -24,7 +24,7 @@
     </select>
 
     <select id="addExamResult"  parameterType="top.sdszhq.pojo.ExamResult">
-        INSERT INTO examresult VALUES(NULL,'${studentaccount}','${studentName}','${examinforid}','${person}','${totalscore}','${score}','${failquestion}','${examCode}','${subject}');
+        INSERT INTO examresult VALUES(NULL,'${studentaccount}','${studentName}','${examinforid}','${person}','${totalscore}','${score}','${failquestion}','${examCode}','${subject}','${examName}');
     </select>
 
     <select id="findExamResult" resultType="top.sdszhq.pojo.ExamResult" >

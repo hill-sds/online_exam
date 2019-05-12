@@ -62,9 +62,8 @@ function selectExamCode() {
                 score = dataObj[0].totalScore;
                 var examDate = dataObj[0].examDate;
                 subject = dataObj[0].subject;
+                examName = dataObj[0].name;
                 c = examDate*60;
-
-
                 $.messager.confirm('温馨提示','确定开始考试?考试时长:'+examDate+'分钟,考试科目:'+subject,function(r){
                     if (r){
                         timedMsg();
@@ -159,7 +158,8 @@ function submitExam() {
                     "score":getScore,
                     "failquestion":failSelect,
                     "examCode":ExamCode,
-                    "subject":subject
+                    "subject":subject,
+                    "examName":examName
                 };
     $.ajax({
         url: "examResult.action",

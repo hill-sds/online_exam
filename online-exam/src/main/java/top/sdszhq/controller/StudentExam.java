@@ -91,7 +91,8 @@ public class StudentExam {
         String failquestion = map.get("failquestion");
         String examCode = map.get("examCode");
         String subject = map.get("subject");
-        ExamResult er = new ExamResult(studentaccount,studentName,examinforid,person,totalscore,score,failquestion,examCode,subject);
+        String examName = map.get("examName");
+        ExamResult er = new ExamResult(studentaccount,studentName,examinforid,person,totalscore,score,failquestion,examCode,subject,examName);
         ses.addExamResult(er);
         System.out.println("666");
         List<Question> list = new ArrayList<>();

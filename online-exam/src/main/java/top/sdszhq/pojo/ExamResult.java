@@ -11,11 +11,12 @@ public class ExamResult {
     private String failquestion;//错题
     private String examCode;//
     private String subject;//
+    private String examName;//
 
     public ExamResult() {
     }
 
-    public ExamResult(int id, String studentaccount, String studentName, String examinforid, String person, String totalscore, String score, String failquestion, String examCode, String subject) {
+    public ExamResult(int id, String studentaccount, String studentName, String examinforid, String person, String totalscore, String score, String failquestion, String examCode, String subject, String examName) {
         this.id = id;
         this.studentaccount = studentaccount;
         this.studentName = studentName;
@@ -26,20 +27,10 @@ public class ExamResult {
         this.failquestion = failquestion;
         this.examCode = examCode;
         this.subject = subject;
+        this.examName = examName;
     }
 
-    public ExamResult(String studentaccount, String studentName, String examinforid, String person, String totalscore, String score, String failquestion, String examCode) {
-        this.studentaccount = studentaccount;
-        this.studentName = studentName;
-        this.examinforid = examinforid;
-        this.person = person;
-        this.totalscore = totalscore;
-        this.score = score;
-        this.failquestion = failquestion;
-        this.examCode = examCode;
-    }
-
-    public ExamResult(String studentaccount, String studentName, String examinforid, String person, String totalscore, String score, String failquestion, String examCode, String subject) {
+    public ExamResult(String studentaccount, String studentName, String examinforid, String person, String totalscore, String score, String failquestion, String examCode, String subject, String examName) {
         this.studentaccount = studentaccount;
         this.studentName = studentName;
         this.examinforid = examinforid;
@@ -49,6 +40,7 @@ public class ExamResult {
         this.failquestion = failquestion;
         this.examCode = examCode;
         this.subject = subject;
+        this.examName = examName;
     }
 
     public int getId() {
@@ -131,6 +123,14 @@ public class ExamResult {
         this.subject = subject;
     }
 
+    public String getExamName() {
+        return examName;
+    }
+
+    public void setExamName(String examName) {
+        this.examName = examName;
+    }
+
     @Override
     public String toString() {
         return "ExamResult{" +
@@ -142,6 +142,9 @@ public class ExamResult {
                 ", totalscore='" + totalscore + '\'' +
                 ", score='" + score + '\'' +
                 ", failquestion='" + failquestion + '\'' +
+                ", examCode='" + examCode + '\'' +
+                ", subject='" + subject + '\'' +
+                ", examName='" + examName + '\'' +
                 '}';
     }
 }

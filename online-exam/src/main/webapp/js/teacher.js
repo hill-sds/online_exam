@@ -41,3 +41,7 @@ function gotoTeacherExam() {
 function gotoTeacherExamInfor() {
     $('#zhuti').attr('src', '../html/teacherExamInformation.html');
 }
+
+function gotoStudentInfor() {
+    $('#zhuti').attr('src', '../html/studentInformation.html');
+}
