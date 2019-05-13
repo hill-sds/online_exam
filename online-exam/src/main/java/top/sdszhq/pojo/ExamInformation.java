@@ -37,6 +37,10 @@ public class ExamInformation {
         this.examDate = examDate;
     }
 
+    public ExamInformation(String examCode) {
+        this.examCode = examCode;
+    }
+
     public int getId() {
         return id;
     }

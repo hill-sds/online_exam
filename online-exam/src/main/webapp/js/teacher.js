@@ -45,3 +45,7 @@ function gotoTeacherExamInfor() {
 function gotoStudentInfor() {
     $('#zhuti').attr('src', '../html/studentInformation.html');
 }
+
+function gotoScoreAnalysis() {
+    $('#zhuti').attr('src', '../html/scoreAnalysis.html');
+}
