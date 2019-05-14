@@ -49,3 +49,7 @@ function gotoStudentInfor() {
 function gotoScoreAnalysis() {
     $('#zhuti').attr('src', '../html/scoreAnalysis.html');
 }
+
+function gotoExamRank() {
+    $('#zhuti').attr('src', '../html/examRank.html');
+}
