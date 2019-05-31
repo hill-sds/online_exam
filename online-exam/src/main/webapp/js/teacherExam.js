@@ -5,6 +5,7 @@ $(document).ready(function (){
     selectExam();
     $("#p9").css('display','none');//隐藏
     $("#p10").css('display','none');//隐藏
+    $("#p11").css('display','none');//隐藏
 });
 
 function createExam() {
@@ -42,6 +43,7 @@ function addQuestion() {
         }
     });
     $("#p10").css('display','block');
+    $("#p11").css('display','none');
 }
 
 function closeQuestion() {
@@ -50,6 +52,7 @@ function closeQuestion() {
 
 function closeExam() {
     $("#p9").css('display','none');
+    $("#p11").css('display','none');
 }
 
 function addQuestion2() {
@@ -123,12 +126,93 @@ function selectExam() {
                     "<td>"+dataObj[i].book+"</td>" +
                     "<td>"+dataObj[i].chapter+"</td>" +
                     "<td>"+dataObj[i].question+"</td>" +
-                    "<td>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class=\"layui-btn\" onclick=\"addQuestion()\">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-                    "<button class=\"layui-btn layui-btn-warm\" onclick=\"addQuestion()\">删除</button>"+"</td></tr>");
+                    "<td>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class=\"layui-btn\" onclick=\"updateExam(" +dataObj[i].id+")\">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                    "<button class=\"layui-btn layui-btn-warm\" onclick=\"deleExam(" +dataObj[i].id+")\">删除</button>"+"</td></tr>");
             }
         },
         error: function () {
             alert("error");
         }
     });
+}
+
+function updateExam(id) {
+    var data = {"id":id};
+    $.ajax({
+        url: "seekExamById.action",
+        type: "post",
+        data: JSON.stringify(data),
+        contentType:"application/json",
+        dataType: "json",
+        success: function (data) {
+            var dataObj = eval(data);//json为接收的后台返回的数据；
+
+            $("#updateId").val(dataObj[0].id);
+            $("#examName1").textbox('setValue',dataObj[0].name);
+            $("#subject1").textbox('setValue',dataObj[0].subject);
+            $("#book1").textbox('setValue',dataObj[0].book);
+            $("#chapter1").textbox('setValue',dataObj[0].chapter);
+            $("#allQuestion1").textbox('setValue',dataObj[0].question);
+            $("#p11").css('display','block');//显示
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+}
+
+//删除
+function deleExam(id) {
+    $.messager.confirm('温馨提示','确定要删除该试卷吗?',function(r){
+        if (r){
+            var data = {"id":id};
+            $.ajax({
+                url: "deleExam.action",
+                type: "post",
+                data: JSON.stringify(data),
+                contentType:"application/json",
+                dataType: "json",
+                success: function (data) {
+                    var dataObj = eval(data);//json为接收的后台返回的数据；
+                    $.messager.alert('温馨提示','删除成功');
+                    selectExam();
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+    });
+}
+
+function sureExam() {
+    var id = $("#updateId").val();
+    var examName = $("#examName1").val();
+    var subject = $("#subject1").val();
+    var book = $("#book1").val();
+    var chapter = $("#chapter1").val();
+    var data = {
+                    "id":id,
+                    "name":examName,
+                    "subject":subject,
+                    "book":book,
+                    "chapter":chapter
+                };
+
+    $.ajax({
+        url: "sureExam.action",
+        type: "post",
+        data: JSON.stringify(data),
+        contentType:"application/json",
+        dataType: "json",
+        success: function (data) {
+            $.messager.alert('温馨提示','修改成功');
+            selectExam();
+            $("#p11").css('display','none');//隐藏
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+
 }

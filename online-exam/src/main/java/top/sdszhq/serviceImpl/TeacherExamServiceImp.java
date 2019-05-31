@@ -24,4 +24,19 @@ public class TeacherExamServiceImp implements TeacherExamService {
         return teacherExamMapper.findExam(map);
     }
 
+    @Override
+    public void deleExam(HashMap map) {
+        teacherExamMapper.deleExam(map);
+    }
+
+    @Override
+    public List<Exam> seekExamById(HashMap map) {
+        return teacherExamMapper.seekExamById(map);
+    }
+
+    @Override
+    public void updateExam(Exam ea) {
+        teacherExamMapper.updateExam(ea);
+    }
+
 }

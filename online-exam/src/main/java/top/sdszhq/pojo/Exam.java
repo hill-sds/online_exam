@@ -35,6 +35,14 @@ public class Exam {
         this.question = question;
     }
 
+    public Exam(int id, String name, String subject, String book, String chapter) {
+        this.id = id;
+        this.name = name;
+        this.subject = subject;
+        this.book = book;
+        this.chapter = chapter;
+    }
+
     public int getId() {
         return id;
     }

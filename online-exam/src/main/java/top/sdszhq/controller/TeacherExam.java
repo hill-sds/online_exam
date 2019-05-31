@@ -54,4 +54,41 @@ public class TeacherExam {
         list = tes.findExam(map1);
         return new Gson().toJson(list);
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/html/deleExam.action",produces = "application/json; charset=utf-8")
+    public String deleExam(@RequestBody Map<String,String> map,HttpServletRequest request) {
+        String id = map.get("id");
+        List<Question> list = new ArrayList<>();
+        HashMap map1 = new HashMap();
+        map1.put("id",id);
+        tes.deleExam(map1);
+        return new Gson().toJson(list);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/html/seekExamById.action",produces = "application/json; charset=utf-8")
+    public String seekExamById(@RequestBody Map<String,String> map,HttpServletRequest request) {
+        String id = map.get("id");
+        List<Exam> list = new ArrayList<>();
+        HashMap map1 = new HashMap();
+        map1.put("id",id);
+        list = tes.seekExamById(map1);
+        return new Gson().toJson(list);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/html/sureExam.action",produces = "application/json; charset=utf-8")
+    public String sureExam(@RequestBody Map<String,String> map, HttpServletRequest request) {
+        String id = map.get("id");
+        String name = map.get("name");
+        String subject = map.get("subject");
+        String book = map.get("book");
+        String chapter = map.get("chapter");
+        int i = Integer.parseInt(id);
+        Exam ea = new Exam(i,name,subject,book,chapter);
+        tes.updateExam(ea);
+        List<Question> list = new ArrayList<>();
+        return new Gson().toJson(list);
+    }
 }

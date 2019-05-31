@@ -13,4 +13,10 @@ public interface TeacherExamMapper {
 
     //根据条件查询试卷
     List<Exam> findExam(HashMap map);
+
+    void deleExam(HashMap map);
+
+    List<Exam> seekExamById(HashMap map);
+
+    void updateExam(Exam ea);
 }
