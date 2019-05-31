@@ -4,6 +4,7 @@ $(document).ready(function (){
 });
 
 function seekAll() {
+    $("#mytab").text("");
     var examName = $("#examName").val();
     var examSubject = $("#examSubject").val();
     var examCode = $("#examCode").val();

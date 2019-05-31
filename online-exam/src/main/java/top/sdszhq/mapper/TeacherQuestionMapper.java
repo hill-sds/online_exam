@@ -14,4 +14,12 @@ public interface TeacherQuestionMapper {
 
     //添加试题
     void addQuedtion(Question qt);
+
+    //根据条件查询试题
+    List<Question> findQuestionById(HashMap map);
+
+    //更新信息
+    void updateQuestion(Question qt);
+
+    void deleQuedtion(HashMap map);
 }

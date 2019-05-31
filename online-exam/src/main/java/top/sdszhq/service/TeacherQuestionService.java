@@ -12,5 +12,11 @@ public interface TeacherQuestionService {
     void addQuestion(Question qt);
 
     List<Question> findQuestion(HashMap map);
+
+    List<Question> findQuestionById(HashMap map);
+
+    void updateQuestion(Question qt);
+
+    void deleQuedtion(HashMap map);
     
 }

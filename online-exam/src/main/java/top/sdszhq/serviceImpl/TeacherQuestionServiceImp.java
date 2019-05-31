@@ -27,4 +27,19 @@ public class TeacherQuestionServiceImp implements TeacherQuestionService {
     public List<Question> findQuestion(HashMap map) {
         return teacherQuestionMapper.findQuestion(map);
     }
+
+    @Override
+    public List<Question> findQuestionById(HashMap map) {
+        return teacherQuestionMapper.findQuestionById(map);
+    }
+
+    @Override
+    public void updateQuestion(Question qt) {
+        teacherQuestionMapper.updateQuestion(qt);
+    }
+
+    @Override
+    public void deleQuedtion(HashMap map) {
+        teacherQuestionMapper.deleQuedtion(map);
+    }
 }

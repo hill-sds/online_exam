@@ -153,6 +153,83 @@
                 </tr>
             </table>
         </div>
+        <div id="p10" class="easyui-panel" style="background-color: #FFFFFF;width: 560px;height: 500px;"
+             data-options="style:{position:'absolute',left:520,top:115}">
+            <table width="550px">
+                <tr>
+                    <td align="center">
+                        <font size="5">修改试题</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="60px">
+                        <font size="3">题目:</font>
+                        <input class="easyui-textbox" id="updateQuestion" style="width:300px">
+                        <input id="updateId" style="display: none">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="30px">
+                        <font size="3">答案:</font>
+                        <input name="updateAnswer" type="radio" value="A" /><font size="4">A</font>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="updateAnswer" type="radio" value="B" /><font size="4">B</font>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="updateAnswer" type="radio" value="C" /><font size="4">C</font>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="updateAnswer" type="radio" value="D" /><font size="4">D</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">A项:</font>
+                        <input class="easyui-textbox" id="updateOptionA" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">B项:</font>
+                        <input class="easyui-textbox" id="updateOptionB" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">C项:</font>
+                        <input class="easyui-textbox" id="updateOptionC" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">D项:</font>
+                        <input class="easyui-textbox" id="updateOptionD" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">科目:</font>
+                        <input class="easyui-textbox" id="updateSubject" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">书籍:</font>
+                        <input class="easyui-textbox" id="updateBook" style="width:100px">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <font size="3">章节:</font>
+                        <input class="easyui-textbox" id="updateChapter" style="width:100px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="110px">
+                        <button class="layui-btn" onclick="sureQuestion()">修改试题</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="layui-btn" onclick="closeQuestion()">取消</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <script>
             layui.use('laypage', function(){
                 var laypage = layui.laypage;

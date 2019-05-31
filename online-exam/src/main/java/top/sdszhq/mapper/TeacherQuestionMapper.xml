@@ -28,4 +28,27 @@
     <select id="addQuedtion"  parameterType="top.sdszhq.pojo.Question">
         INSERT INTO question VALUES(NULL,'${question}','${answer}','${optionA}','${optionB}','${optionC}','${optionD}','${subject}','${person}',NULL,NULL,'${book}','${chapter}','${difficulty}');
     </select>
+
+    <select id="findQuestionById" parameterType="hashmap" resultType="top.sdszhq.pojo.Question" >
+        SELECT t.`id`,t.`question`,t.`answer`,t.`optionA`,t.`optionB`,t.`optionC`,t.`optionD`,t.`subject`,t.`book`,t.`chapter`,t.`difficulty` FROM question t where t.`id` =#{id};
+    </select>
+
+    <update id="updateQuestion" parameterType="top.sdszhq.pojo.Question">
+        UPDATE question
+            SET question.question = #{question},
+                question.answer = #{answer},
+                question.optionA = #{optionA},
+                question.optionB = #{optionB},
+                question.optionC = #{optionC},
+                question.optionD = #{optionD},
+                question.subject = #{subject},
+                question.book = #{book},
+                question.chapter = #{chapter}
+         WHERE question.id = #{id};
+    </update>
+
+    <delete id="deleQuedtion" parameterType="hashmap">
+        DELETE FROM question WHERE question.id = #{id}
+    </delete>
+
 </mapper>

@@ -51,6 +51,19 @@ public class Question {
         this.difficulty = difficulty;
     }
 
+    public Question(int id, String question, String answer, String optionA, String optionB, String optionC, String optionD, String subject, String book, String chapter) {
+        this.id = id;
+        this.question = question;
+        this.answer = answer;
+        this.optionA = optionA;
+        this.optionB = optionB;
+        this.optionC = optionC;
+        this.optionD = optionD;
+        this.subject = subject;
+        this.book = book;
+        this.chapter = chapter;
+    }
+
     public int getId() {
         return id;
     }

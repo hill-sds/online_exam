@@ -3,6 +3,7 @@
 //加载页面
 $(document).ready(function (){
     $("#p9").css('display','none');//隐藏
+    $("#p10").css('display','none');//隐藏
     seekAll();
 });
 
@@ -36,8 +37,12 @@ function seekQuestion() {
                         "<td>"+dataObj[i].subject+"</td>" +
                         "<td>"+dataObj[i].book+"</td>" +
                         "<td>"+dataObj[i].chapter+"</td>" +
-                        "<td>"+"&nbsp;<button class=\"layui-btn\" onclick=\"addQuestion()\">修改</button>&nbsp;" +
-                        "<button class=\"layui-btn layui-btn-warm\" onclick=\"addQuestion()\">删除</button>"+"</td></tr>");
+                        "<td>"
+                        +"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class=\"layui-btn\" " +
+                        "onclick=\"UpdateQuestion(" +dataObj[i].id+")\">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                        "<button class=\"layui-btn layui-btn-warm\" " +
+                        "onclick=\"deleQuestion(" +dataObj[i].id+")\">删除</button>"+"" +
+                        "</td></tr>");
                 }
             },
             error: function () {
@@ -69,8 +74,12 @@ function seekAll() {
                                 "<td>"+dataObj[i].subject+"</td>" +
                                 "<td>"+dataObj[i].book+"</td>" +
                                 "<td>"+dataObj[i].chapter+"</td>" +
-                                "<td>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class=\"layui-btn\" onclick=\"updateQuestion()\">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-                                "<button class=\"layui-btn layui-btn-warm\" onclick=\"deleQuestion()\">删除</button>"+"</td></tr>");
+                                "<td>"
+                                +"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class=\"layui-btn\" " +
+                                 "onclick=\"UpdateQuestion(" +dataObj[i].id+")\">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                                "<button class=\"layui-btn layui-btn-warm\" " +
+                                "onclick=\"deleQuestion(" +dataObj[i].id+")\">删除</button>"+"" +
+                    "           </td></tr>");
             }
         },
         error: function () {
@@ -81,12 +90,13 @@ function seekAll() {
 
 //添加试题界面显示
 function addQuestion() {
-    $("#p9").css('display','block');//显示
+    $("#p9").css('display','block');
 }
 
 //关闭试题界面显示
 function closeQuestion() {
-    $("#p9").css('display','none');//显示
+    $("#p9").css('display','none');
+    $("#p10").css('display','none');
 }
 
 //添加具体的试题
@@ -131,6 +141,109 @@ function addQuestionTitle() {
 }
 
 //修改题目
-function updateQuestion() {
+function UpdateQuestion(id) {
+    var data = {"id":id};
+    $.ajax({
+        url: "seekQuestionById.action",
+        type: "post",
+        data: JSON.stringify(data),
+        contentType:"application/json",
+        dataType: "json",
+        success: function (data) {
+            var dataObj = eval(data);//json为接收的后台返回的数据；
+            var answer = dataObj[0].answer;
+            if (answer == "A") {
+                $("input[name='updateAnswer'][value=A]").attr("checked",true);
+            }
+            if (answer == "B") {
+                $("input[name='updateAnswer'][value=B]").attr("checked",true);
+            }
+            if (answer == "C") {
+                $("input[name='updateAnswer'][value=C]").attr("checked",true);
+            }
+            if (answer == "D") {
+                $("input[name='updateAnswer'][value=D]").attr("checked",true);
+            }
+            $("#updateId").val(dataObj[0].id);
+            $("#updateQuestion").textbox('setValue',dataObj[0].question);
+            $("#updateOptionA").textbox('setValue',dataObj[0].optionA);
+            $("#updateOptionB").textbox('setValue',dataObj[0].optionB);
+            $("#updateOptionC").textbox('setValue',dataObj[0].optionC);
+            $("#updateOptionD").textbox('setValue',dataObj[0].optionD);
+            $("#updateSubject").textbox('setValue',dataObj[0].subject);
+            $("#updateBook").textbox('setValue',dataObj[0].book);
+            $("#updateChapter").textbox('setValue',dataObj[0].chapter);
+            $("#p10").css('display','block');//显示
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+}
 
+//修改按钮
+function sureQuestion() {
+    var id = $("#updateId").val();
+    var question = $("#updateQuestion").val();
+    var answer = $("input[name='updateAnswer']:checked").val();
+    var optionA = $("#updateOptionA").val();
+    var optionB = $("#updateOptionB").val();
+    var optionC = $("#updateOptionC").val();
+    var optionD = $("#updateOptionD").val();
+    var subject = $("#updateSubject").val();
+    var book = $("#updateBook").val();
+    var chapter = $("#updateChapter").val();
+
+    var data = {    "id":id,
+                    "question":question,
+                    "answer":answer,
+                    "optionA":optionA,
+                    "optionB":optionB,
+                    "optionC":optionC,
+                    "optionD":optionD,
+                    "subject":subject,
+                    "book":book,
+                    "chapter":chapter
+                };
+
+    $.ajax({
+        url: "updateQuestion.action",
+        type: "post",
+        data: JSON.stringify(data),
+        contentType:"application/json",
+        dataType: "json",
+        success: function (data) {
+            $("#p10").css('display','none');//显示
+            $.messager.alert('温馨提示','修改成功');
+            seekAll();
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+
+}
+
+//删除
+function deleQuestion(id) {
+    $.messager.confirm('温馨提示','确定要删除该试题吗?',function(r){
+        if (r){
+            var data = {"id":id};
+            $.ajax({
+                url: "deleQuestion.action",
+                type: "post",
+                data: JSON.stringify(data),
+                contentType:"application/json",
+                dataType: "json",
+                success: function (data) {
+                    var dataObj = eval(data);//json为接收的后台返回的数据；
+                    $.messager.alert('温馨提示','删除成功');
+                    seekAll();
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+    });
 }
