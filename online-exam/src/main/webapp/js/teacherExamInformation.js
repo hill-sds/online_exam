@@ -60,7 +60,7 @@ function addQuestion() {
             var arr=s.split(",");
             var examId = arr[0]+"."+arr[1];
             $("#examId").textbox('setValue',examId)//赋值*/
-            $("#score").textbox('setValue',arr[2])//赋值*/
+            $("#score").textbox('setValue',100)//赋值*/
             var myDate = new Date();
             var mytime=myDate.toLocaleDateString();
             //examCode
@@ -113,6 +113,8 @@ function sureExam() {
         dataType: "json",
         success: function (data) {
             $.messager.alert('温馨提示','添加成功');
+            selectExamInformation();
+            $("#p9").css('display','none');//隐藏
         },
         error: function () {
             alert("error");

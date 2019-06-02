@@ -93,6 +93,8 @@ function sureQuestion() {
         dataType: "json",
         success: function (data) {
             $.messager.alert('温馨提示','添加成功');
+            $("#p9").css('display','none');//隐藏
+            selectExam();
         },
         error: function () {
             alert("error");
