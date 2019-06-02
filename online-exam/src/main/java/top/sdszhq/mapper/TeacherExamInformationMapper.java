@@ -11,5 +11,11 @@ public interface TeacherExamInformationMapper {
     void addExamInformation(ExamInformation ei);
 
     //根据条件查询考试信息
-    List<ExamInformation> findExamInformation(HashMap map);
+    List<ExamInformation> findExamInformation(HashMap map);//seekInforById
+
+    List<ExamInformation> seekInforById(HashMap map);//sureUpdateExam
+
+    void sureUpdateExam(ExamInformation ei);
+
+    void deleInfo(HashMap map);
 }

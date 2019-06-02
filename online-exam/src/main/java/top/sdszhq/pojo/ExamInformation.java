@@ -37,6 +37,13 @@ public class ExamInformation {
         this.examDate = examDate;
     }
 
+    public ExamInformation(int id, String name, String subject, String examDate) {
+        this.id = id;
+        this.name = name;
+        this.subject = subject;
+        this.examDate = examDate;
+    }
+
     public ExamInformation(String examCode) {
         this.examCode = examCode;
     }

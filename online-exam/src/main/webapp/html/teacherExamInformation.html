@@ -139,5 +139,59 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="layui-btn" onclick="closeQuestion()">关闭界面</button>
         </div>
+
+        <div id="p11" class="easyui-panel" style="background-color: #FFFFFF;width: 500px;height: 410px;"
+             data-options="style:{position:'absolute',left:520,top:115}">
+            <table width="490px" >
+                <tr>
+                    <td align="center">
+                        <font size="5">修改考试</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="60px">
+                        <font size="3">考试名称:</font>
+                        <input class="easyui-textbox" id="examName1" style="width:300px">
+                        <input id="updateId" style="display: none">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">考试科目:</font>
+                        <input class="easyui-textbox" id="subject1" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">考试时长:</font>
+                        <input class="easyui-textbox" id="examDate1" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">考试总分:</font>
+                        <input class="easyui-textbox" id="score1" disabled="disabled" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">选用试卷:</font>
+                        <input class="easyui-textbox" id="examId1" disabled="disabled" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="40px">
+                        <font size="3">考&nbsp;&nbsp;试&nbsp;&nbsp;码:</font>
+                        <input class="easyui-textbox" id="examCode1" disabled="disabled" style="width:300px">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" height="110px">
+                        <button class="layui-btn" onclick="sureUpdateExam()">确认修改</button>
+                        <button class="layui-btn" onclick="closeExam()">关闭界面</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>

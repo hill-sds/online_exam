@@ -11,5 +11,10 @@ public interface TeacherExamInformationService {
     void addExamInformation(ExamInformation ea);
 
     List<ExamInformation> findExamInformation(HashMap map);
-    
+
+    List<ExamInformation> seekInforById(HashMap map);
+
+    void sureUpdateExam(ExamInformation ei);
+
+    void deleInfo(HashMap map);
 }

@@ -26,4 +26,19 @@ public class TeacherExamInformationServiceImp implements TeacherExamInformationS
     public List<ExamInformation> findExamInformation(HashMap map) {
         return teacherExamInformationMapper.findExamInformation(map);
     }
+
+    @Override
+    public List<ExamInformation> seekInforById(HashMap map) {
+        return teacherExamInformationMapper.seekInforById(map);
+    }
+
+    @Override
+    public void sureUpdateExam(ExamInformation ei) {
+        teacherExamInformationMapper.sureUpdateExam(ei);
+    }
+
+    @Override
+    public void deleInfo(HashMap map) {
+        teacherExamInformationMapper.deleInfo(map);
+    }
 }

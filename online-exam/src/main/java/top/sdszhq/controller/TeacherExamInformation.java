@@ -53,4 +53,40 @@ public class TeacherExamInformation {
         list = tei.findExamInformation(map1);
         return new Gson().toJson(list);
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/html/seekInforById.action",produces = "application/json; charset=utf-8")
+    public String seekInforById(@RequestBody Map<String,String> map,HttpServletRequest request) {
+        String id = map.get("id");
+        List<ExamInformation> list = new ArrayList<>();
+        HashMap map1 = new HashMap();
+        map1.put("id",id);
+        list = tei.seekInforById(map1);
+        return new Gson().toJson(list);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/html/sureUpdateExam.action",produces = "application/json; charset=utf-8")
+    public String sureUpdateExam(@RequestBody Map<String,String> map, HttpServletRequest request) {
+        String id = map.get("id");
+        String name = map.get("name");
+        String subject = map.get("subject");
+        String examDate = map.get("examDate");
+        int i = Integer.parseInt(id);
+        ExamInformation ei = new ExamInformation(i,name,subject,examDate);
+        tei.sureUpdateExam(ei);
+        List<Question> list = new ArrayList<>();
+        return new Gson().toJson(list);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/html/deleInfo.action",produces = "application/json; charset=utf-8")
+    public String deleInfo(@RequestBody Map<String,String> map,HttpServletRequest request) {
+        String id = map.get("id");
+        List<Question> list = new ArrayList<>();
+        HashMap map1 = new HashMap();
+        map1.put("id",id);
+        tei.deleInfo(map1);
+        return new Gson().toJson(list);
+    }
 }

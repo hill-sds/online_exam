@@ -5,6 +5,7 @@ $(document).ready(function (){
     selectExamInformation();
     $("#p9").css('display','none');//隐藏
     $("#p10").css('display','none');//隐藏
+    $("#p11").css('display','none');//隐藏
 });
 
 function createExam() {
@@ -13,6 +14,7 @@ function createExam() {
 
 function closeExam() {
     $("#p9").css('display','none');
+    $("#p11").css('display','none');//隐藏
 }
 
 function addExam() {
@@ -144,12 +146,92 @@ function selectExamInformation() {
                     "<td>"+dataObj[i].examDate+"分钟"+"</td>" +
                     "<td>"+dataObj[i].examCode+"</td>" +
                     "<td>"+dataObj[i].person+"</td>" +
-                    "<td>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class=\"layui-btn\" onclick=\"test()\">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-                    "<button class=\"layui-btn layui-btn-warm\" onclick=\"test()\">删除</button>"+"</td></tr>");
+                    "<td>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class=\"layui-btn\" onclick=\"updateInfor(" +dataObj[i].id+")\")\">修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                    "<button class=\"layui-btn layui-btn-warm\" onclick=\"deleInfo(" +dataObj[i].id+")\")\">删除</button>"+"</td></tr>");
             }
         },
         error: function () {
             alert("error");
         }
     });
+}
+
+function updateInfor(id) {
+    var data = {"id":id};
+    $.ajax({
+        url: "seekInforById.action",
+        type: "post",
+        data: JSON.stringify(data),
+        contentType:"application/json",
+        dataType: "json",
+        success: function (data) {
+            var dataObj = eval(data);//json为接收的后台返回的数据；
+
+            $("#updateId").val(dataObj[0].id);
+            $("#examName1").textbox('setValue',dataObj[0].name);
+            $("#subject1").textbox('setValue',dataObj[0].subject);
+            $("#examDate1").textbox('setValue',dataObj[0].examDate);
+            $("#score1").textbox('setValue',dataObj[0].totalScore);
+            $("#examId1").textbox('setValue',dataObj[0].exam);
+            $("#examCode1").textbox('setValue',dataObj[0].examCode);
+            $("#p11").css('display','block');//显示
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+}
+
+function sureUpdateExam() {
+    var id = $("#updateId").val();
+    var examName = $("#examName1").val();
+    var subject = $("#subject1").val();
+    var examDate = $("#examDate1").val();
+
+    var data = {
+                    "id":id,
+                    "name":examName,
+                    "subject":subject,
+                    "examDate":examDate
+                };
+
+    $.ajax({
+        url: "sureUpdateExam.action",
+        type: "post",
+        data: JSON.stringify(data),
+        contentType:"application/json",
+        dataType: "json",
+        success: function (data) {
+            $.messager.alert('温馨提示','修改成功');
+            selectExamInformation();
+            $("#p11").css('display','none');//隐藏
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+}
+
+function deleInfo(id) {
+    $.messager.confirm('温馨提示','确定要删除该场考试吗?',function(r){
+        if (r){
+            var data = {"id":id};
+            $.ajax({
+                url: "deleInfo.action",
+                type: "post",
+                data: JSON.stringify(data),
+                contentType:"application/json",
+                dataType: "json",
+                success: function (data) {
+                    var dataObj = eval(data);//json为接收的后台返回的数据；
+                    $.messager.alert('温馨提示','删除成功');
+                    selectExamInformation();
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+    });
+    
 }
