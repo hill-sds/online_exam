@@ -53,3 +53,7 @@ function gotoScoreAnalysis() {
 function gotoExamRank() {
     $('#zhuti').attr('src', '../html/examRank.html');
 }
+
+function gotoExamExport() {
+    $('#zhuti').attr('src', '../html/examExport.html');
+}
