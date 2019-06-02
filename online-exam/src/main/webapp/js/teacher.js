@@ -57,3 +57,7 @@ function gotoExamRank() {
 function gotoExamExport() {
     $('#zhuti').attr('src', '../html/examExport.html');
 }
+
+function gotofailQuestion() {
+    $('#zhuti').attr('src', '../html/failQuestion.html');
+}

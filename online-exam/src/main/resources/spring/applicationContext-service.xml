@@ -18,4 +18,5 @@
 	<bean id="StudentInformationService" name="StudentInformationService" class="top.sdszhq.serviceImpl.StudentInformationServiceImp"></bean>
 	<bean id="ScoreAnalysisService" name="ScoreAnalysisService" class="top.sdszhq.serviceImpl.ScoreAnalysisServiceImp"></bean>
 	<bean id="ExamRankService" name="ExamRankService" class="top.sdszhq.serviceImpl.ExamRankServiceImp"></bean>
+	<bean id="FailQuestionService" name="FailQuestionService" class="top.sdszhq.serviceImpl.FailQuestionServiceImp"></bean>
 </beans>
