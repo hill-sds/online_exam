@@ -112,6 +112,34 @@ function addQuestionTitle() {
     var book = $("#book").val();
     var chapter = $("#chapter").val();
 
+
+
+    if(question==""||question==null) {
+        $.messager.alert('温馨提示','请输入题目');
+        return false;
+    }
+    if(answer == "") {
+        $.messager.alert('温馨提示','请选择答案');
+        return false;
+    }
+    if(optionA==""||optionA==null) {
+        $.messager.alert('温馨提示','请输入选项');
+        return false;
+    }
+    if(optionB==""||optionB==null) {
+        $.messager.alert('温馨提示','请输入选项');
+        return false;
+    }
+    if(optionC==""||optionC==null) {
+        $.messager.alert('温馨提示','请输入选项');
+        return false;
+    }
+    if(optionD==""||optionD==null) {
+        $.messager.alert('温馨提示','请输入选项');
+        return false;
+    }
+
+
     var data = {    "question":question,
                     "answer":answer,
                     "optionA":optionA,
@@ -133,6 +161,7 @@ function addQuestionTitle() {
         success: function (data) {
             $("#p9").css('display','none');//显示
             $.messager.alert('温馨提示','添加成功');
+            seekAll();
         },
         error: function () {
             alert("error");

@@ -97,6 +97,21 @@ function sureExam() {
     var examCode = $("#examCode").val();
     var examDate = $("#examDate").val();
 
+
+    if(examName==""||examName==null) {
+        $.messager.alert('温馨提示','请输入考试名称');
+        return false;
+    }
+    if(examDate==""||examDate==null) {
+        $.messager.alert('温馨提示','请输入考试时间');
+        return false;
+    }
+    if(examId==""||examId==null) {
+        $.messager.alert('温馨提示','请选择试卷');
+        return false;
+    }
+
+
     var data = {    "name":examName,
                     "score":score,
                     "subject":subject,

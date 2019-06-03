@@ -77,6 +77,16 @@ function sureQuestion() {
     var singleScore = $("#singleScore").val();
     var allQuestion = $("#allQuestion").val();
 
+
+    if(examName==""||examName==null) {
+        $.messager.alert('温馨提示','请输入试卷名称');
+        return false;
+    }
+    if(allQuestion==""||allQuestion==null) {
+        $.messager.alert('温馨提示','请选择试题');
+        return false;
+    }
+
     var data = {    "name":examName,
                     "singleScore":singleScore,
                     "subject":subject,
