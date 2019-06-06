@@ -11,4 +11,12 @@
 	<bean id="RegisteService" name="RegisteService" class="top.sdszhq.serviceImpl.RegisteServiceImp"></bean>
 	<bean id="LoginService" name="LoginService" class="top.sdszhq.serviceImpl.LoginServiceImp"></bean>
 	<bean id="TeacherQuestionService" name="TeacherQuestionService" class="top.sdszhq.serviceImpl.TeacherQuestionServiceImp"></bean>
+	<bean id="TeacherExamService" name="TeacherExamService" class="top.sdszhq.serviceImpl.TeacherExamServiceImp"></bean>
+	<bean id="TeacherExamInformationService" name="TeacherExamInformationService" class="top.sdszhq.serviceImpl.TeacherExamInformationServiceImp"></bean>
+
+	<bean id="StudentExamService" name="StudentExamService" class="top.sdszhq.serviceImpl.StudentExamServiceImp"></bean>
+	<bean id="StudentInformationService" name="StudentInformationService" class="top.sdszhq.serviceImpl.StudentInformationServiceImp"></bean>
+	<bean id="ScoreAnalysisService" name="ScoreAnalysisService" class="top.sdszhq.serviceImpl.ScoreAnalysisServiceImp"></bean>
+	<bean id="ExamRankService" name="ExamRankService" class="top.sdszhq.serviceImpl.ExamRankServiceImp"></bean>
+	<bean id="FailQuestionService" name="FailQuestionService" class="top.sdszhq.serviceImpl.FailQuestionServiceImp"></bean>
 </beans>

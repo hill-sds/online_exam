@@ -32,7 +32,6 @@
              data-options="style:{position:'absolute',left:1300,top:0}">
             <p>
                 <a class="easyui-linkbutton" data-options="plain:true" href="../html/registe.html"><font size="2">新用户注册</font></a>
-                <a class="easyui-linkbutton"  data-options="plain:true" href="../html/teacherLogin.html" ><font size="2">教师端</font></a>
                 <a class="easyui-linkbutton"  data-options="plain:true" ><font size="2">管理端</font></a>
                 <a class="easyui-linkbutton" data-options="plain:true" ><font size="2">English</font></a>
             </p>
@@ -65,22 +64,35 @@
                                style="width:300px;height: 40px;" data-options="">
                     </td>
                 </tr>
-                <tr><td height="30px"></td></tr>
+                <tr><td></td></tr>
                 <tr>
                     <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="remenber" value="student" /><font size="2">学生</font>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="remenber" value="teacher" /><font size="2">教师</font>
+                    </td>
+                    <!--<td>
                         <input type="checkbox" name="remenber" value="1" />记住密码
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <a onclick="test()"><font color="blue">忘记密码</font></a>
-                    </td>
+                    </td>-->
                 </tr>
                 <tr>
-                    <td style="text-align: center">
-                        <a href="#" class="easyui-linkbutton" style="width: 100px;text-align: center"
+                    <td style="text-align: center" height="50px">
+                        <a href="#" class="easyui-linkbutton" style="width: 90px;text-align: center"
                            onclick="login()">
-                            登&nbsp;&nbsp;&nbsp;录
+                            登&nbsp;&nbsp;录
+                        </a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#" class="easyui-linkbutton" style="width: 90px;text-align: center"
+                           onclick="clearText()">
+                            重&nbsp;&nbsp;置
                         </a>
                     </td>
                 </tr>

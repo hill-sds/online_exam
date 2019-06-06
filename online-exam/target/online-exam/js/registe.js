@@ -7,12 +7,18 @@ function registe() {
     var repassword = $("#repassword").val();
     var question = $("#question").val();
     var answer = $("#answer").val();
+    var status = $("input[name='remenber']:checked").val();//身份
+
+    if(status==""||status==null) {
+        $.messager.alert('温馨提示','请选择身份');
+        return false;
+    }
     if(name == "") {
         $.messager.alert('温馨提示','请输入姓名');
         return false;
     }
-    if (account == "" || !(/\d{11}$/.test(account))) {
-        $.messager.alert('温馨提示','请输入11位数字账号');
+    if (account == "" || !(/\d{10}$/.test(account))) {
+        $.messager.alert('温馨提示','请输入10位数字账号');
         return false;
     }
     if(password == "" || repassword=="") {
@@ -27,11 +33,15 @@ function registe() {
         $.messager.alert('温馨提示','请输入密保问题或答案');
         return false;
     }
+
+
+
     var data = {    "name":name,
                     "account":account,
                     "password":password,
                     "question":question,
-                    "answer":answer
+                    "answer":answer,
+                    "status":status
                 };
 
     $.ajax({

@@ -21,7 +21,7 @@
             在线考试系统
         </div>
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="">控制台</a></li>
+            <!--<li class="layui-nav-item"><a href="">控制台</a></li>
             <li class="layui-nav-item"><a href="">功能管理</a></li>
             <li class="layui-nav-item"><a href="">用户</a></li>
             <li class="layui-nav-item">
@@ -31,7 +31,7 @@
                     <dd><a href="">消息管理</a></dd>
                     <dd><a href="">联系作者</a></dd>
                 </dl>
-            </li>
+            </li>-->
         </ul>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
@@ -56,19 +56,22 @@
                     <a class="" href="javascript:;">考试管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="#" onclick="gotoTeacherExamInfor()">考试信息</a></dd>
-                        <dd><a href="#" onclick="gotoTeacherQuestion()">试题库</a></dd>
                         <dd><a href="#" onclick="gotoTeacherExam()">试卷库</a></dd>
+                        <dd><a href="#" onclick="gotoTeacherQuestion()">试题库</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a href="javascript:;">考生管理</a>
+                    <a href="javascript:;">成绩管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">考生信息</a></dd>
-                        <dd><a href="javascript:;">考生成绩</a></dd>
-                        <dd><a href="">成绩排名</a></dd>
+                        <dd><a href="#" onclick="gotoStudentInfor()">考生信息</a></dd>
+                        <dd><a href="#" onclick="gotoScoreAnalysis()">成绩分析</a></dd>
+                        <dd><a href="#" onclick="gotoExamRank()">成绩排名</a></dd>
+                        <dd><a href="#" onclick="gotofailQuestion()">错题统计</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="">成绩导出</a></li>
+                <li class="layui-nav-item">
+                    <a href="#" onclick="gotoExamExport()">成绩导出</a>
+                </li>
             </ul>
         </div>
     </div>
